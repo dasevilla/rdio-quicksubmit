@@ -1,5 +1,5 @@
 Django==1.5.1
--e git+git@github.com:dasevilla/tumblr-python.git@53837bc51822903e90072db3b5998e08f76ec246#egg=Tumblr_API_Client-dev
+git+git://github.com/dasevilla/tumblr-python.git
 dj-database-url==0.2.1
 dj-static==0.0.5
 django-social-auth==0.7.23

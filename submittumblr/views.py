@@ -121,9 +121,11 @@ def submission(request):
                 settings.TUMBLR_CONSUMER_SECRET)
             token = oauth.Token(access_key, access_secret)
 
-            client = TumblrClient(form.cleaned_data['tumblr_url'], consumer, token)
+            t_url = urlparse(form.cleaned_data['tumblr_url'].tumblr_url).netloc
+            print t_url
+            client = TumblrClient(t_url, consumer, token)
             album_info = get_album_info(settings.RDIO_API_TOKEN, form.cleaned_data['album_url'])
-            create_post(client, album_info, form.cleaned_data['comment'])
+            print create_post(client, album_info, form.cleaned_data['comment'])
 
             return HttpResponseRedirect(reverse('submittumblr.views.done'))
     else:
